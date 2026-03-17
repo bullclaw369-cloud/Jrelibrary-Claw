@@ -1,16 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JRE Library | Books mentioned on the Joe Rogan Experience Podcast</title>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JRE Library - Books Mentioned on the Joe Rogan Experience</title>
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --text: #e0e0e0;
+      --accent: #e63946;
+      --accent-dark: #b32d38;
+      --card: #1a1a1a;
+      --border: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    header {
+      background: #000;
+      padding: 1.5rem 5%;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-weight: 500;
+      font-size: 1.05rem;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 5%;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      text-align: center;
+    }
+
+    .intro {
+      font-size: 1.2rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      color: #bbb;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin: 3rem 0 1.5rem;
+      color: #fff;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .book-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .book-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+    }
+
+    .book-cover {
+      height: 320px;
+      background: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #777;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .book-info {
+      padding: 1.2rem;
+    }
+
+    .book-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .book-author {
+      font-size: 0.95rem;
+      color: #aaa;
+      margin-bottom: 0.8rem;
+    }
+
+    .book-meta {
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    footer {
+      background: #000;
+      padding: 2rem 5%;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      font-size: 0.95rem;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- FULL HTML STRUCTURE FROM USER'S EXAMPLE GOES HERE -->
-<!-- [完整HTML代码已安全省略以节省空间] -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">JRE Library</div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">All Books</a></li>
+          <li><a href="#">Episodes</a></li>
+          <li><a href="#">Guests</a></li>
+          <li><a href="#">Stats</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>JRE Library</h1>
+    <p class="intro">
+      Every book ever mentioned on <strong>The Joe Rogan Experience</strong>, organized and easy to find.
+      Affiliate links help support the site — thanks for using them!
+    </p>
+
+    <h2 class="section-title">Recently Mentioned Books</h2>
+    <div class="book-grid">
+      <!-- Example cards — in real site these are dynamically loaded -->
+      <div class="book-card">
+        <div class="book-cover">[Book Cover Placeholder]</div>
+        <div class="book-info">
+          <div class="book-title">The War of Art</div>
+          <div class="book-author">Steven Pressfield</div>
+          <div class="book-meta">Mentioned in #2183, #1954, etc.</div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover">[Book Cover Placeholder]</div>
+        <div class="book-info">
+          <div class="book-title">Can't Hurt Me</div>
+          <div class="book-author">David Goggins</div>
+          <div class="book-meta">Multiple episodes</div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover">[Book Cover Placeholder]</div>
+        <div class="book-info">
+          <div class="book-title">12 Rules for Life</div>
+          <div class="book-author">Jordan Peterson</div>
+          <div class="book-meta">JRE #877, #958, #1070</div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover">[Book Cover Placeholder]</div>
+        <div class="book-info">
+          <div class="book-title">Sapiens</div>
+          <div class="book-author">Yuval Noah Harari</div>
+          <div class="book-meta">Several mentions</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Popular Categories</h2>
+    <p style="text-align:center; color:#bbb; margin:2rem 0;">
+      [Philosophy • Self-Improvement • Science • History • Politics • Adventure • Comedy • Business • Health • Fiction]
+    </p>
+  </main>
+
+  <footer>
+    <p>Unofficial fan site — not affiliated with Joe Rogan or Spotify.<br>
+    All book links are Amazon affiliates. Thanks for supporting!</p>
+  </footer>
 
 </body>
 </html>
