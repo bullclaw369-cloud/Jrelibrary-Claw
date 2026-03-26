@@ -1,335 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JRE Library — Every Book, Movie & Guest from the Joe Rogan Experience</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JRE Library | Books mentioned on the Joe Rogan Experience Podcast</title>
+<meta name="description" content="Complete list of books mentioned on the Joe Rogan Experience Podcast. Sorted by episode, date, title and category." />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+body { background:#fff; color:#333; font-family:'Roboto',sans-serif; line-height:1.5; }
+a { color:#cc0000; text-decoration:none; }
+a:hover { color:#e60000; }
+.container { max-width:1100px; margin:0 auto; padding:0 20px; }
 
-body {
-  background-color: #111;
-  color: #eee;
-  font-family: 'Inter', sans-serif;
-  line-height: 1.5;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+/* HEADER */
+.site-header { background:#1a1a1a; color:#fff; text-align:center; padding:1.5rem 0; }
+.site-title { font-size:2rem; font-weight:700; margin-bottom:0.3rem; color:#fff; }
+.site-title a { color:#fff; }
+.site-description { font-size:1rem; color:#ddd; }
 
-a { color: #ff4d4d; text-decoration: none; }
-a:hover { color: #ff7a7a; }
+/* NAV */
+.nav-bar { background:#fff; border-bottom:1px solid #eee; }
+.nav-bar ul { display:flex; justify-content:center; list-style:none; gap:2rem; padding:0; margin:0; }
+.nav-bar a { color:#333; font-weight:500; text-transform:uppercase; letter-spacing:0.5px; padding:0.75rem 0; display:block; font-size:0.9rem; }
+.nav-bar a:hover { color:#cc0000; }
 
-/* NAVBAR */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #0a0a0a;
-  border-bottom: 1px solid #222;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-nav .logo {
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: #ff4d4d;
-}
-nav ul {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-nav ul a {
-  color: #eee;
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-nav ul a:hover { color: #ff4d4d; }
-.search-icon {
-  cursor: pointer;
-  color: #ff4d4d;
-  font-size: 1.2rem;
-}
+/* AFFILIATE BANNER */
+.affiliate-banner { background:#f9f9f9; border-top:1px solid #eee; border-bottom:1px solid #eee; padding:0.75rem 1rem; text-align:center; font-size:0.9rem; color:#555; }
+.affiliate-banner a { color:#cc0000; font-weight:600; }
 
 /* HERO */
-.hero {
-  text-align: center;
-  padding: 3rem 1rem 2rem;
-  background: linear-gradient(180deg, #1a0a0a 0%, #111 100%);
-}
-.hero h1 {
-  color: #fff;
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-.hero .subhead {
-  color: #bbb;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
-.search-bar {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.search-bar input {
-  padding: 0.75rem 1rem;
-  width: 100%;
-  font-size: 1rem;
-  border: 1px solid #444;
-  border-radius: 4px;
-  background-color: #1e1e1e;
-  color: #eee;
-  outline: none;
-}
-.search-bar input:focus {
-  border-color: #ff4d4d;
-}
-.search-submit {
-  padding: 0.75rem 1.5rem;
-  background-color: #ff4d4d;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  white-space: nowrap;
-}
-.search-submit:hover { background-color: #e03c3c; }
+.hero-section { background:#fff; text-align:center; padding:2.5rem 0; }
+.hero-title { font-size:2rem; margin-bottom:0.5rem; font-weight:700; color:#333; }
+.hero-subtitle { font-size:1.2rem; color:#666; margin-bottom:1.5rem; }
+.search-form { display:flex; justify-content:center; gap:0.5rem; }
+.screen-reader-text { display:none; }
+.search-field { padding:0.75rem 1rem; width:300px; border:1px solid #ccc; border-radius:4px; font-size:1rem; outline:none; }
+.search-field:focus { border-color:#cc0000; }
+.search-submit { background:#cc0000; color:#fff; border:none; padding:0.75rem 1.5rem; border-radius:4px; cursor:pointer; font-weight:500; font-size:1rem; }
+.search-submit:hover { background:#e60000; }
 
-/* CATEGORY CARDS ROW */
-.section-title {
-  padding: 1.5rem 2rem 0.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.cards-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  padding: 1rem 2rem;
-}
-.card {
-  background-color: #1e1e1e;
-  border: 1px solid #2a2a2a;
-  border-radius: 8px;
-  padding: 1.2rem 1rem;
-  flex: 1 1 150px;
-  max-width: 180px;
-  text-align: center;
-  cursor: pointer;
-  transition: border-color 0.2s, transform 0.2s;
-}
-.card:hover {
-  border-color: #ff4d4d;
-  transform: translateY(-2px);
-}
-.card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
-.card h3 {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #eee;
-}
+/* CATEGORY SECTION */
+.category-section { padding:2rem 0; border-bottom:1px solid #eee; }
+.section-title { text-align:center; font-size:1.8rem; margin-bottom:1.5rem; color:#333; font-weight:700; }
+.category-grid { display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; }
+.category-item { display:flex; flex-direction:column; align-items:center; gap:0.5rem; color:#333; padding:1rem; border-radius:8px; transition:background 0.2s; }
+.category-item:hover { background:#f9f9f9; color:#cc0000; }
+.category-icon { font-size:2.5rem; }
+.category-title { font-size:1rem; font-weight:500; color:#333; }
+.category-item:hover .category-title { color:#cc0000; }
 
-/* RECENT MENTIONS GRID */
-.mentions-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  padding: 1rem 2rem 2rem;
-}
-.mention-card {
-  background-color: #1a1a1a;
-  border: 1px solid #2a2a2a;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: border-color 0.2s, transform 0.2s;
-  cursor: pointer;
-}
-.mention-card:hover {
-  border-color: #ff4d4d;
-  transform: translateY(-2px);
-}
-.mention-card img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  display: block;
-}
-.mention-card .info {
-  padding: 0.75rem;
-}
-.mention-card .info h3 {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-  color: #eee;
-}
-.badge {
-  display: inline-block;
-  background-color: #ff4d4d;
-  color: #fff;
-  padding: 0.2rem 0.5rem;
-  font-size: 0.75rem;
-  border-radius: 4px;
-  font-weight: 600;
-}
+/* MENTIONS SECTION */
+.mentions-section { padding:2rem 0; }
+.mentions-slider { display:flex; overflow-x:auto; gap:1rem; padding-bottom:1rem; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; }
+.mentions-slider::-webkit-scrollbar { height:4px; }
+.mentions-slider::-webkit-scrollbar-track { background:#f1f1f1; }
+.mentions-slider::-webkit-scrollbar-thumb { background:#cc0000; border-radius:2px; }
+.mention-slide { flex:0 0 180px; scroll-snap-align:start; background:#fafafa; border:1px solid #eee; border-radius:6px; overflow:hidden; transition:box-shadow 0.2s; }
+.mention-slide:hover { box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+.mention-slide a { color:#333; display:block; }
+.mention-slide img { width:100%; height:220px; object-fit:cover; display:block; }
+.mention-slide .info { padding:0.5rem; }
+.mention-title { font-size:0.9rem; font-weight:600; margin-bottom:0.4rem; color:#333; }
+.mention-category { display:inline-block; background:#cc0000; color:#fff; padding:0.2rem 0.5rem; border-radius:3px; font-size:0.75rem; font-weight:600; margin-bottom:0.3rem; }
+.mention-episode { font-size:0.8rem; color:#666; margin:0; }
 
 /* FOOTER */
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 2rem;
-  background-color: #0a0a0a;
-  border-top: 1px solid #222;
-  margin-top: auto;
-  color: #bbb;
-  font-size: 0.9rem;
-}
-footer .links {
-  display: flex;
-  gap: 1.5rem;
-}
-footer .links a {
-  color: #bbb;
-}
-footer .links a:hover { color: #eee; }
+.site-footer { background:#1a1a1a; color:#ddd; padding:1.5rem 0; font-size:0.9rem; }
+.site-footer .container { display:flex; justify-content:space-between; align-items:center; }
+.site-footer a { color:#fff; }
+.site-footer a:hover { color:#ff4d4d; }
+.site-footer-menu ul { display:flex; list-style:none; gap:1.5rem; margin:0; padding:0; }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  nav ul { display: none; }
-  .hero h1 { font-size: 1.6rem; }
-  .cards-row { gap: 0.75rem; }
-  .card { max-width: 45%; }
-  .mentions-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width:768px) {
+  .nav-bar ul { gap:1rem; }
+  .search-form { flex-direction:column; align-items:center; }
+  .search-field { width:100%; max-width:400px; }
+  .category-grid { gap:1rem; }
+  .site-footer .container { flex-direction:column; gap:0.75rem; text-align:center; }
 }
-@media (max-width: 480px) {
-  .mentions-grid { grid-template-columns: 1fr; }
-  .card { max-width: 100%; }
-  footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+@media (max-width:480px) {
+  .site-title { font-size:1.5rem; }
+  .hero-title { font-size:1.5rem; }
+  .hero-subtitle { font-size:1rem; }
+  .section-title { font-size:1.5rem; }
+  .nav-bar ul { flex-wrap:wrap; justify-content:center; }
+  .mention-slide { flex:0 0 150px; }
 }
 </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <div class="logo">JRE Library</div>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <h1 class="site-title"><a href="/">JRE Library</a></h1>
+    <p class="site-description">Books mentioned on the Joe Rogan Experience Podcast</p>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <div class="container">
     <ul>
-      <li><a href="#">Books</a></li>
-      <li><a href="#">Movies</a></li>
-      <li><a href="#">Music</a></li>
-      <li><a href="#">Guests</a></li>
-      <li><a href="#">Episodes</a></li>
+      <li><a href="/book-list/">Book List</a></li>
+      <li><a href="/episode-list/">Episode List</a></li>
+      <li><a href="/upcoming-guests/">Schedule</a></li>
+      <li><a href="/articles/">Articles</a></li>
     </ul>
-    <div class="search-icon">🔍</div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- HERO / SEARCH BAR -->
-  <section class="hero">
-    <h1>Every Book, Movie &amp; Guest from the JRE</h1>
-    <div class="subhead">Search 2,600+ episodes</div>
-    <div class="search-bar">
-      <input type="text" placeholder="Search books, guests, episodes...">
-      <button class="search-submit">Search</button>
-    </div>
-  </section>
+<!-- AFFILIATE BANNER -->
+<div class="affiliate-banner">
+  <p>We may earn an affiliate commission if you make a purchase after clicking on links from our site. <a href="/about/#affiliate-disclosure">Learn more</a></p>
+</div>
 
-  <!-- CATEGORY CARDS ROW -->
-  <div class="section-title">Browse by Category</div>
-  <section class="cards-row">
-    <div class="card">
-      <div class="icon">📚</div>
-      <h3>Books</h3>
-    </div>
-    <div class="card">
-      <div class="icon">🎬</div>
-      <h3>Movies</h3>
-    </div>
-    <div class="card">
-      <div class="icon">🎵</div>
-      <h3>Music</h3>
-    </div>
-    <div class="card">
-      <div class="icon">🎙️</div>
-      <h3>Guests</h3>
-    </div>
-    <div class="card">
-      <div class="icon">🔗</div>
-      <h3>Products</h3>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="hero-section">
+  <div class="container">
+    <h1 class="hero-title">Every Book, Movie &amp; Guest from the Joe Rogan Experience</h1>
+    <p class="hero-subtitle">Search 2,600+ episodes</p>
+    <form role="search" method="get" class="search-form" action="/">
+      <label>
+        <span class="screen-reader-text">Search</span>
+        <input type="search" class="search-field" placeholder="Search books, guests, episodes..." name="s" />
+      </label>
+      <button type="submit" class="search-submit"><i class="fas fa-search"></i> Search</button>
+    </form>
+  </div>
+</section>
 
-  <!-- RECENT MENTIONS GRID -->
-  <div class="section-title">Recent Mentions</div>
-  <section class="mentions-grid">
-    <div class="mention-card">
-      <img src="https://via.placeholder.com/400x120/1a1a1a/ff4d4d?text=Books" alt="Fear and Loathing">
-      <div class="info">
-        <h3>Fear and Loathing in Las Vegas</h3>
-        <span class="badge">Book</span>
-      </div>
+<!-- CATEGORIES -->
+<section class="category-section">
+  <div class="container">
+    <h2 class="section-title">Browse by Category</h2>
+    <div class="category-grid">
+      <a href="/books/" class="category-item">
+        <div class="category-icon">📚</div>
+        <h3 class="category-title">Books</h3>
+      </a>
+      <a href="/movies/" class="category-item">
+        <div class="category-icon">🎬</div>
+        <h3 class="category-title">Movies</h3>
+      </a>
+      <a href="/music/" class="category-item">
+        <div class="category-icon">🎵</div>
+        <h3 class="category-title">Music</h3>
+      </a>
+      <a href="/guests/" class="category-item">
+        <div class="category-icon">🎙️</div>
+        <h3 class="category-title">Guests</h3>
+      </a>
+      <a href="/products/" class="category-item">
+        <div class="category-icon">🛒</div>
+        <h3 class="category-title">Products</h3>
+      </a>
     </div>
-    <div class="mention-card">
-      <img src="https://via.placeholder.com/400x120/1a1a1a/ff4d4d?text=Guest" alt="Elon Musk">
-      <div class="info">
-        <h3>Elon Musk</h3>
-        <span class="badge">Guest #1169</span>
-      </div>
-    </div>
-    <div class="mention-card">
-      <img src="https://via.placeholder.com/400x120/1a1a1a/ff4d4d?text=Movies" alt="Apocalypse Now">
-      <div class="info">
-        <h3>Apocalypse Now</h3>
-        <span class="badge">Movie</span>
-      </div>
-    </div>
-    <div class="mention-card">
-      <img src="https://via.placeholder.com/400x120/1a1a1a/ff4d4d?text=Guest" alt="Neil deGrasse Tyson">
-      <div class="info">
-        <h3>Neil deGrasse Tyson</h3>
-        <span class="badge">Guest #817</span>
-      </div>
-    </div>
-    <div class="mention-card">
-      <img src="https://via.placeholder.com/400x120/1a1a1a/ff4d4d?text=Music" alt="Duff McKagan">
-      <div class="info">
-        <h3>Duff McKagan</h3>
-        <span class="badge">Guest #712</span>
-      </div>
-    </div>
-    <div class="mention-card">
-      <img src="https://via.placeholder.com/400x120/1a1a1a/ff4d4d?text=Books" alt="Adventures of Huckleberry Finn">
-      <div class="info">
-        <h3>Adventures of Huckleberry Finn</h3>
-        <span class="badge">Book</span>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="left">JRE Library © 2026</div>
-    <div class="links">
-      <a href="#">About</a>
-      <a href="#">Submit</a>
-      <a href="#">Privacy</a>
+<!-- RECENT MENTIONS -->
+<section class="mentions-section">
+  <div class="container">
+    <h2 class="section-title">Recent Mentions</h2>
+    <div class="mentions-slider">
+      <div class="mention-slide">
+        <a href="/mention/fear-and-loathing-in-las-vegas/">
+          <img src="https://via.placeholder.com/150x220/f9f9f9/cc0000?text=Book" alt="Fear and Loathing in Las Vegas" />
+          <div class="info">
+            <h3 class="mention-title">Fear and Loathing in Las Vegas</h3>
+            <p class="mention-category">Book</p>
+            <p class="mention-episode">Episode #?</p>
+          </div>
+        </a>
+      </div>
+      <div class="mention-slide">
+        <a href="/mention/elon-musk/">
+          <img src="https://via.placeholder.com/150x220/f9f9f9/cc0000?text=Guest" alt="Elon Musk" />
+          <div class="info">
+            <h3 class="mention-title">Elon Musk</h3>
+            <p class="mention-category">Guest</p>
+            <p class="mention-episode">Episode #1169</p>
+          </div>
+        </a>
+      </div>
+      <div class="mention-slide">
+        <a href="/mention/apocalypse-now/">
+          <img src="https://via.placeholder.com/150x220/f9f9f9/cc0000?text=Movie" alt="Apocalypse Now" />
+          <div class="info">
+            <h3 class="mention-title">Apocalypse Now</h3>
+            <p class="mention-category">Movie</p>
+            <p class="mention-episode">Episode #?</p>
+          </div>
+        </a>
+      </div>
+      <div class="mention-slide">
+        <a href="/mention/neil-degrasse-tyson/">
+          <img src="https://via.placeholder.com/150x220/f9f9f9/cc0000?text=Guest" alt="Neil deGrasse Tyson" />
+          <div class="info">
+            <h3 class="mention-title">Neil deGrasse Tyson</h3>
+            <p class="mention-category">Guest</p>
+            <p class="mention-episode">Episode #817</p>
+          </div>
+        </a>
+      </div>
+      <div class="mention-slide">
+        <a href="/mention/duff-mckagan/">
+          <img src="https://via.placeholder.com/150x220/f9f9f9/cc0000?text=Guest" alt="Duff McKagan" />
+          <div class="info">
+            <h3 class="mention-title">Duff McKagan</h3>
+            <p class="mention-category">Guest</p>
+            <p class="mention-episode">Episode #712</p>
+          </div>
+        </a>
+      </div>
+      <div class="mention-slide">
+        <a href="/mention/the-war-of-art/">
+          <img src="https://via.placeholder.com/150x220/f9f9f9/cc0000?text=Book" alt="The War of Art" />
+          <div class="info">
+            <h3 class="mention-title">The War of Art</h3>
+            <p class="mention-category">Book</p>
+            <p class="mention-episode">Episode #?</p>
+          </div>
+        </a>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-info">JRE Library © 2026</div>
+    <div class="site-footer-menu">
+      <ul id="menu-footer" class="menu">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/submit/">Submit</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
+
