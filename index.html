@@ -1,259 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JRE Library - Books Mentioned on the Joe Rogan Experience</title>
-  <style>
-    :root {
-      --bg: #0f0f0f;
-      --text: #e0e0e0;
-      --accent: #e63946;
-      --accent-dark: #b32d38;
-      --card: #1a1a1a;
-      --border: #333;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JRE Library — Every Book, Movie & Guest from the Joe Rogan Experience</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+body {
+  background-color: #111;
+  color: #eee;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+a { color: #ff4d4d; text-decoration: none; }
+a:hover { color: #ff7a7a; }
 
-    a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #0a0a0a;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav .logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #ff4d4d;
+}
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+nav ul a {
+  color: #eee;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+nav ul a:hover { color: #ff4d4d; }
+.search-icon {
+  cursor: pointer;
+  color: #ff4d4d;
+  font-size: 1.2rem;
+}
 
-    header {
-      background: #000;
-      padding: 1.5rem 5%;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background: linear-gradient(180deg, #1a0a0a 0%, #111 100%);
+}
+.hero h1 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.hero .subhead {
+  color: #bbb;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.search-bar input {
+  padding: 0.75rem 1rem;
+  width: 100%;
+  font-size: 1rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: #1e1e1e;
+  color: #eee;
+  outline: none;
+}
+.search-bar input:focus {
+  border-color: #ff4d4d;
+}
+.search-submit {
+  padding: 0.75rem 1.5rem;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+.search-submit:hover { background-color: #e03c3c; }
 
-    .header-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+/* CATEGORY CARDS ROW */
+.section-title {
+  padding: 1.5rem 2rem 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem 2rem;
+}
+.card {
+  background-color: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.2rem 1rem;
+  flex: 1 1 150px;
+  max-width: 180px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover {
+  border-color: #ff4d4d;
+  transform: translateY(-2px);
+}
+.card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+.card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #eee;
+}
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: var(--accent);
-    }
+/* RECENT MENTIONS GRID */
+.mentions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem 2rem 2rem;
+}
+.mention-card {
+  background-color: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.mention-card:hover {
+  border-color: #ff4d4d;
+  transform: translateY(-2px);
+}
+.mention-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+.mention-card .info {
+  padding: 0.75rem;
+}
+.mention-card .info h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #eee;
+}
+.badge {
+  display: inline-block;
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background-color: #0a0a0a;
+  border-top: 1px solid #222;
+  margin-top: auto;
+  color: #bbb;
+  font-size: 0.9rem;
+}
+footer .links {
+  display: flex;
+  gap: 1.5rem;
+}
+footer .links a {
+  color: #bbb;
+}
+footer .links a:hover { color: #eee; }
 
-    nav a {
-      font-weight: 500;
-      font-size: 1.05rem;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 5%;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1.5rem;
-      color: #fff;
-      text-align: center;
-    }
-
-    .intro {
-      font-size: 1.2rem;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 3rem;
-      color: #bbb;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin: 3rem 0 1.5rem;
-      color: #fff;
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 0.5rem;
-      display: inline-block;
-    }
-
-    .book-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.8rem;
-    }
-
-    .book-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-
-    .book-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.6);
-    }
-
-    .book-cover {
-      height: 320px;
-      background: #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      color: #777;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    .book-info {
-      padding: 1.2rem;
-    }
-
-    .book-title {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #fff;
-    }
-
-    .book-author {
-      font-size: 0.95rem;
-      color: #aaa;
-      margin-bottom: 0.8rem;
-    }
-
-    .book-meta {
-      font-size: 0.9rem;
-      color: #888;
-    }
-
-    footer {
-      background: #000;
-      padding: 2rem 5%;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      margin-top: 4rem;
-      font-size: 0.95rem;
-      color: #777;
-    }
-
-    @media (max-width: 768px) {
-      .header-inner {
-        flex-direction: column;
-        gap: 1.2rem;
-      }
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.2rem;
-      }
-      h1 {
-        font-size: 2.2rem;
-      }
-    }
-  </style>
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav ul { display: none; }
+  .hero h1 { font-size: 1.6rem; }
+  .cards-row { gap: 0.75rem; }
+  .card { max-width: 45%; }
+  .mentions-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .mentions-grid { grid-template-columns: 1fr; }
+  .card { max-width: 100%; }
+  footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="header-inner">
-      <div class="logo">JRE Library</div>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">All Books</a></li>
-          <li><a href="#">Episodes</a></li>
-          <li><a href="#">Guests</a></li>
-          <li><a href="#">Stats</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </nav>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">JRE Library</div>
+    <ul>
+      <li><a href="#">Books</a></li>
+      <li><a href="#">Movies</a></li>
+      <li><a href="#">Music</a></li>
+      <li><a href="#">Guests</a></li>
+      <li><a href="#">Episodes</a></li>
+    </ul>
+    <div class="search-icon">🔍</div>
+  </nav>
+
+  <!-- HERO / SEARCH BAR -->
+  <section class="hero">
+    <h1>Every Book, Movie &amp; Guest from the JRE</h1>
+    <div class="subhead">Search 2,600+ episodes</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search books, guests, episodes...">
+      <button class="search-submit">Search</button>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <h1>JRE Library</h1>
-    <p class="intro">
-      Every book ever mentioned on <strong>The Joe Rogan Experience</strong>, organized and easy to find.
-      Affiliate links help support the site — thanks for using them!
-    </p>
+  <!-- CATEGORY CARDS ROW -->
+  <div class="section-title">Browse by Category</div>
+  <section class="cards-row">
+    <div class="card">
+      <div class="icon">📚</div>
+      <h3>Books</h3>
+    </div>
+    <div class="card">
+      <div class="icon">🎬</div>
+      <h3>Movies</h3>
+    </div>
+    <div class="card">
+      <div class="icon">🎵</div>
+      <h3>Music</h3>
+    </div>
+    <div class="card">
+      <div class="icon">🎙️</div>
+      <h3>Guests</h3>
+    </div>
+    <div class="card">
+      <div class="icon">🔗</div>
+      <h3>Products</h3>
+    </div>
+  </section>
 
-    <h2 class="section-title">Recently Mentioned Books</h2>
-    <div class="book-grid">
-      <!-- Example cards — in real site these are dynamically loaded -->
-      <div class="book-card">
-        <div class="book-cover">[Book Cover Placeholder]</div>
-        <div class="book-info">
-          <div class="book-title">The War of Art</div>
-          <div class="book-author">Steven Pressfield</div>
-          <div class="book-meta">Mentioned in #2183, #1954, etc.</div>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <div class="book-cover">[Book Cover Placeholder]</div>
-        <div class="book-info">
-          <div class="book-title">Can't Hurt Me</div>
-          <div class="book-author">David Goggins</div>
-          <div class="book-meta">Multiple episodes</div>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <div class="book-cover">[Book Cover Placeholder]</div>
-        <div class="book-info">
-          <div class="book-title">12 Rules for Life</div>
-          <div class="book-author">Jordan Peterson</div>
-          <div class="book-meta">JRE #877, #958, #1070</div>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <div class="book-cover">[Book Cover Placeholder]</div>
-        <div class="book-info">
-          <div class="book-title">Sapiens</div>
-          <div class="book-author">Yuval Noah Harari</div>
-          <div class="book-meta">Several mentions</div>
-        </div>
+  <!-- RECENT MENTIONS GRID -->
+  <div class="section-title">Recent Mentions</div>
+  <section class="mentions-grid">
+    <div class="mention-card">
+      <img src="https://via.placeholder.com/400x120/1a1a1a/ff4d4d?text=Books" alt="Fear and Loathing">
+      <div class="info">
+        <h3>Fear and Loathing in Las Vegas</h3>
+        <span class="badge">Book</span>
       </div>
     </div>
+    <div class="mention-card">
+      <img src="https://via.placeholder.com/400x120/1a1a1a/ff4d4d?text=Guest" alt="Elon Musk">
+      <div class="info">
+        <h3>Elon Musk</h3>
+        <span class="badge">Guest #1169</span>
+      </div>
+    </div>
+    <div class="mention-card">
+      <img src="https://via.placeholder.com/400x120/1a1a1a/ff4d4d?text=Movies" alt="Apocalypse Now">
+      <div class="info">
+        <h3>Apocalypse Now</h3>
+        <span class="badge">Movie</span>
+      </div>
+    </div>
+    <div class="mention-card">
+      <img src="https://via.placeholder.com/400x120/1a1a1a/ff4d4d?text=Guest" alt="Neil deGrasse Tyson">
+      <div class="info">
+        <h3>Neil deGrasse Tyson</h3>
+        <span class="badge">Guest #817</span>
+      </div>
+    </div>
+    <div class="mention-card">
+      <img src="https://via.placeholder.com/400x120/1a1a1a/ff4d4d?text=Music" alt="Duff McKagan">
+      <div class="info">
+        <h3>Duff McKagan</h3>
+        <span class="badge">Guest #712</span>
+      </div>
+    </div>
+    <div class="mention-card">
+      <img src="https://via.placeholder.com/400x120/1a1a1a/ff4d4d?text=Books" alt="Adventures of Huckleberry Finn">
+      <div class="info">
+        <h3>Adventures of Huckleberry Finn</h3>
+        <span class="badge">Book</span>
+      </div>
+    </div>
+  </section>
 
-    <h2 class="section-title">Popular Categories</h2>
-    <p style="text-align:center; color:#bbb; margin:2rem 0;">
-      [Philosophy • Self-Improvement • Science • History • Politics • Adventure • Comedy • Business • Health • Fiction]
-    </p>
-  </main>
-
+  <!-- FOOTER -->
   <footer>
-    <p>Unofficial fan site — not affiliated with Joe Rogan or Spotify.<br>
-    All book links are Amazon affiliates. Thanks for supporting!</p>
+    <div class="left">JRE Library © 2026</div>
+    <div class="links">
+      <a href="#">About</a>
+      <a href="#">Submit</a>
+      <a href="#">Privacy</a>
+    </div>
   </footer>
 
 </body>
